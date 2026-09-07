@@ -10,11 +10,7 @@ from services.behaviour_service import analyze_behaviour
 
 router = APIRouter(prefix="/analyze", tags=["Analysis"])
 
-# Support both phishing service versions
-try:
-    from services.phishing_service import analyze_phishing_advanced as analyze_phishing
-except ImportError:
-    from services.hf_service import analyze_phishing
+from services.phishing_service import analyze_phishing_advanced as analyze_phishing
 
 
 @router.post("/phishing")

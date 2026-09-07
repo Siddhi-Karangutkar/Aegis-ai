@@ -59,9 +59,18 @@ A full-stack AI-powered cyber defense dashboard. Designed to analyze and explain
    ```
    The frontend will be accessible, usually at `http://localhost:5173`.
 
+### 3. Chrome Extension Setup
+
+1. Open a new tab in Google Chrome and go to `chrome://extensions/`.
+2. Turn on **Developer mode** in the top right.
+3. Click **Load unpacked** in the top left.
+4. Select the `extension/` folder located at the root of this project.
+5. *Note: When you deploy your backend to production, make sure to update `API_BASE_URL` in `extension/config.js` and repackage the `.zip` file for your users.*
+
 ---
 
 ## Deployment Steps
 
 - **Frontend (Vercel)**: Import the repository, set the Framework Preset to Vite, and set the environment variable `VITE_API_URL` to your production backend URL.
 - **Backend (Render)**: Connect the repository, set the Build Command to `pip install -r requirements.txt`, and the Start Command to `uvicorn main:app --host 0.0.0.0 --port 10000`. Set `HF_API_TOKEN` as an environment variable in the Render dashboard.
+- **Chrome Extension**: After deploying the backend, update `API_BASE_URL` in `extension/config.js`. Compress the `extension/` folder into a zip file named `aegis-extension.zip` and place it inside `frontend/public/` so users can download it from your live site.
