@@ -9,3 +9,5 @@ scipy
 nltk
 websockets
 httpx
+jellyfish
+joblib
